@@ -85,10 +85,15 @@ function Install-Shortcuts
     "Done."
 }
 
-function Install-SublimeProfile
+function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
 {
-    $sublime_profile = "https://github.com/mwinder/sublime-profile.git"
     git clone $sublime_profile "$env:appdata\Sublime Text 3"
+}
+
+function Install-ModuleFromGit($url)
+{
+    set-location $env:userprofile\Documents\WindowsPowershell\Modules
+    git clone $url
 }
 
 function Set-ConfigPaths
