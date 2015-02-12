@@ -29,7 +29,7 @@ function Install-Git
     $env:path += ";$env:programfiles (x86)\Git\bin"
 }
 
-function Install-PowershellProfile($powershell_profile = "git@home:powershell-profile.git")
+function Install-PowershellProfile($powershell_profile = "https://github.com/mwinder/powershell-profile.git")
 {
     git clone $powershell_profile "$env:userprofile\Documents\WindowsPowershell"
 }
