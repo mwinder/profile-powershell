@@ -1,0 +1,5 @@
+Modules/posh-*
+Modules/Ps*
+*_profile.ps1
+
+*.sublime-workspace
