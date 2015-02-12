@@ -92,8 +92,10 @@ function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/s
 
 function Install-ModuleFromGit($url)
 {
-    set-location $env:userprofile\Documents\WindowsPowershell\Modules
+    Push-Location
+    Set-Location $env:userprofile\Documents\WindowsPowershell\Modules
     git clone $url
+    Pop-Location
 }
 
 function Set-ConfigPaths
