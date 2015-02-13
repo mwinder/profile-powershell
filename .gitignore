@@ -1,6 +1,10 @@
 Modules/Backup
-Modules/posh-*
-Modules/Ps*
+Modules/posh-git
+Modules/posh-hg
+Modules/posh-npm
+Modules/pscx
+Modules/PsGet
+Modules/PsUrl
 *_profile.ps1
 
 *.sublime-workspace
