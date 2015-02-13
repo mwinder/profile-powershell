@@ -98,6 +98,15 @@ function Install-ModuleFromGit($url)
     Pop-Location
 }
 
+function Set-GitConfiguration
+{
+    git config --global user.name "Matthew Winder"
+    git config --global user.email "@mwinder"
+    git config --global core.editor subl
+    git config --global core.autocrlf false
+    git config --global push.default simple
+}
+
 function Set-ConfigPaths
 {
     # IIS Express
