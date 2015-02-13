@@ -1,4 +1,26 @@
 
+function New-Machine
+{
+    Install-PsGet
+    Install-Module posh-git
+    Install-Module posh-npm
+    Install-SublimeProfile
+    Install-Shortcuts
+
+    Set-GitConfiguration
+
+    choco install 7zip
+    choco install cmder
+    choco install gitextensions
+    choco install nodejs.install
+    choco install sublimetext3
+    choco install sumatrapdf
+    choco install sysinternals
+    choco install virtualbox
+    choco install winmerge
+    choco install winscp
+}
+
 function Install-PsGet
 {
     "Setting up PsGet..."
@@ -96,6 +118,12 @@ function Install-ModuleFromGit($url)
     Set-Location $env:userprofile\Documents\WindowsPowershell\Modules
     git clone $url
     Pop-Location
+}
+
+function Install-NpmPackages
+{
+    npm install -g gulp
+    npm install -g serve
 }
 
 function Set-GitConfiguration
