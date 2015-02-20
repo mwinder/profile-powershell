@@ -133,6 +133,15 @@ function Set-GitConfiguration
     git config --global core.editor subl
     git config --global core.autocrlf false
     git config --global push.default simple
+    git config --global ghfw.disableverification true
+}
+
+function Set-DefaultGitIgnores
+{
+"bin/
+obj/
+*.user
+*.suo" | Out-File -encoding utf8 .gitignore
 }
 
 function Set-ConfigPaths
