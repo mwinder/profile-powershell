@@ -24,13 +24,13 @@ function Global-Path
     Add-Path "$env:programfiles\Sublime Text 3" | `
     Add-Path "$env:programfiles\TortoiseHg" | `
     Add-Path "$env:programfiles (x86)\Git\cmd" | Add-Path "$env:programfiles (x86)\Git\bin" | `
+    Add-Path "$env:programdata\chocolatey\bin" | `
     Add-Path "$env:systemdrive\HashiCorp\Vagrant\bin" | `
     Add-Path "$env:systemdrive\HashiCorp\Packer" | `
-    Add-Path "$env:systemdrive\Vendor\chocolatey\bin" | `
-    Add-Path "$env:systemdrive\Vendor\go\bin" | `
-    Add-Path "$env:systemdrive\Vendor\python" | Add-Path "$env:systemdrive\Vendor\python\scripts" | `
-    Add-Path "$env:systemdrive\Vendor\ruby*\bin" | `
-    Add-Path "$env:systemdrive\Vendor\sysinternals"
+    Add-Path "$env:systemdrive\Tools\go\bin" | `
+    Add-Path "$env:systemdrive\Tools\python" | Add-Path "$env:systemdrive\Tools\python\scripts" | `
+    Add-Path "$env:systemdrive\Tools\ruby*\bin" | `
+    Add-Path "$env:systemdrive\Tools\sysinternals"
 }
 
 function System-Path
@@ -38,7 +38,7 @@ function System-Path
     Add-Path "$env:systemroot\system32" | `
     Add-Path "$env:systemroot" | `
     Add-Path "$env:systemroot\System32\Wbem" | `
-    Add-Path "$env:systemroot\System32\WindowsPowerShell\v1.0\"
+    Add-Path "$env:systemroot\System32\WindowsPowerShell\v1.0"
 }
 
 function User-Name { [Environment]::Username }

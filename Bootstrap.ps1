@@ -12,14 +12,6 @@ function Main
 
 function Install-Chocolatey
 {
-    [Environment]::SetEnvironmentVariable("ChocolateyInstall", "$env:systemdrive\Vendor\chocolatey", "User")
-    [Environment]::SetEnvironmentVariable("ChocolateyBinRoot", "$env:systemdrive\Vendor", "User")
-    [Environment]::SetEnvironmentVariable("chocolatey_bin_root", "Vendor", "User")
-
-    $env:ChocolateyInstall = [Environment]::GetEnvironmentVariable("ChocolateyInstall", "User")
-    $env:ChocolateyBinRoot = [Environment]::GetEnvironmentVariable("ChocolateyBinRoot", "User")
-    $env:chocolatey_bin_root = [Environment]::GetEnvironmentVariable("chocolatey_bin_root", "User")
-
     (New-Object Net.WebClient).DownloadString("https://chocolatey.org/install.ps1") | iex
 }
 
