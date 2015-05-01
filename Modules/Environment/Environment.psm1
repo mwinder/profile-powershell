@@ -50,14 +50,18 @@ function Display-Warning($current, $replacement)
     $replacement.Split(";")
 }
 
-function Get-UserPath
+function Get-UserPath([switch]$format = $false)
 {
-    [Environment]::GetEnvironmentVariable("Path", "User")
+    $result = [Environment]::GetEnvironmentVariable("Path", "User")
+    if ($format) { return $result.Split(";") }
+    return $result
 }
 
-function Get-MachinePath
+function Get-MachinePath([switch]$format = $false)
 {
-    [Environment]::GetEnvironmentVariable("Path", "Machine")
+    $result = [Environment]::GetEnvironmentVariable("Path", "Machine")
+    if ($format) { return $result.Split(";") }
+    return $result
 }
 
 function Add-Path([string]$target)
@@ -69,9 +73,4 @@ function Add-Path([string]$target)
     return "$input;$path"
 }
 
-function Format-Path
-{
-    $env:path.Split(";")
-}
-
-Export-ModuleMember -function Set-*, Get-*, Add-*, Format-*
+Export-ModuleMember -function Set-*, Get-*, Add-*
