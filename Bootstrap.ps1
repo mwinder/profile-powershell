@@ -3,11 +3,8 @@
 function Main
 {
     Install-Chocolatey
-    "========================"
     Install-Git
-    "========================"
     Install-PowershellProfile
-    "========================"
 }
 
 function Install-Chocolatey
