@@ -9,7 +9,7 @@ function Local-Path
 function User-Path
 {
     Add-Path "$env:userprofile\.gem\ruby\*\bin" | `
-    Add-Path "$env:userprofile\.kre\bin" | `
+    Add-Path "$env:userprofile\.dnx\bin" | `
     Add-Path "$env:userprofile\AppData\Roaming\npm" | `
     Add-Path "$env:userprofile\Tools"
 }
