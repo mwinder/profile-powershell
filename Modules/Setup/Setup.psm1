@@ -2,97 +2,31 @@
 function New-Machine
 {
     Install-PsGet
-    Install-Module posh-git
-    Install-Module posh-npm
     Install-SublimeProfile
     Install-Shortcuts
 
     Set-GitConfiguration
 
-    choco install 7zip
-    choco install cmder
-    choco install gitextensions
-    choco install nodejs.install
-    choco install sublimetext3
-    choco install sumatrapdf
-    choco install sysinternals
-    choco install virtualbox
-    choco install winmerge
-    choco install winscp
+    choco install --confirm 7zip
+    choco install --confirm cmder
+    choco install --confirm gitextensions
+    choco install --confirm nodejs
+    choco install --confirm sublimetext3
+    choco install --confirm sysinternals
+    choco install --confirm winmerge
+
+    Install-Module posh-git
+    Install-Module posh-npm
 }
 
 function Install-PsGet
 {
-    "Setting up PsGet..."
     (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
-    "========================"
 }
 
-function Install-Packages
+function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
 {
-    param(
-        [switch]$core = $false,
-        [switch]$dev = $false,
-        [switch]$optional = $false,
-        [switch]$git = $false,
-        [switch]$mercurial = $false,
-        [switch]$node = $false,
-        [switch]$office = $false)
-
-    # Suggested packages:
-    #
-    # choco install googlechrome
-    # choco install skype
-    # choco install VisualStudio2013Professional
-
-    if ($core) {
-        choco install 7zip
-        choco install consolez
-        choco install notepad2
-        choco install putty.install
-        choco install sublimetext3
-        choco install sumatrapdf
-        choco install sysinternals
-        choco install winmerge
-    }
-
-    if ($dev) {
-        choco install curl
-        choco install fiddler4
-        choco install hxd
-        choco install ilspy
-        choco install nuget.commandline
-        choco install python
-        choco install ruby
-    }
-
-    if ($optional) {
-        choco install fastglacier
-        choco install handbrake
-        choco install truecrypt
-        choco install vlc
-        choco install winscp
-    }
-
-    if ($git) {
-        choco install git
-        choco install gitextensions
-        Install-Module posh-git
-    }
-
-    if ($mercurial) {
-        choco install tortoisehg
-        Install-Module posh-hg
-    }
-
-    if ($node) {
-        choco install nodejs.install
-        Install-Module posh-npm
-    }
-
-    if ($office) {
-        choco install libreoffice
-    }
+    git clone $sublime_profile "$env:appdata\Sublime Text 3"
 }
 
 function Install-Shortcuts
@@ -104,26 +38,6 @@ function Install-Shortcuts
     New-Shortcut "$env:userprofile\Links\Powershell.lnk" "$env:userprofile\Documents\WindowsPowershell"
     New-Shortcut "$env:userprofile\Links\AppData.lnk"    "$env:userprofile\AppData"
     New-Shortcut "$env:userprofile\Links\Tools.lnk"      "$env:userprofile\Tools"
-    "Done."
-}
-
-function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
-{
-    git clone $sublime_profile "$env:appdata\Sublime Text 3"
-}
-
-function Install-ModuleFromGit($url)
-{
-    Push-Location
-    Set-Location $env:userprofile\Documents\WindowsPowershell\Modules
-    git clone $url
-    Pop-Location
-}
-
-function Install-NpmPackages
-{
-    npm install -g gulp
-    npm install -g serve
 }
 
 function Set-GitConfiguration
@@ -137,6 +51,20 @@ function Set-GitConfiguration
     git config --global ghfw.disableverification true
 }
 
+function Install-NpmPackages
+{
+    npm install -g gulp
+    npm install -g serve
+}
+
+function Install-ModuleFromGit($url)
+{
+    Push-Location
+    Set-Location $env:userprofile\Documents\WindowsPowershell\Modules
+    git clone $url
+    Pop-Location
+}
+
 function Set-DefaultGitIgnores
 {
 "bin/
@@ -144,6 +72,9 @@ obj/
 *.user
 *.suo" | Out-File -encoding utf8 .gitignore
 }
+
+
+### Utility settings functions ###
 
 function Set-ConfigPaths
 {
