@@ -65,14 +65,6 @@ function Install-ModuleFromGit($url)
     Pop-Location
 }
 
-function Set-DefaultGitIgnores
-{
-"bin/
-obj/
-*.user
-*.suo" | Out-File -encoding utf8 .gitignore
-}
-
 
 ### Utility settings functions ###
 
