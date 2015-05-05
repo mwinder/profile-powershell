@@ -1,9 +1,8 @@
 
 function New-Machine
 {
-    Install-PsGet
-    Install-SublimeProfile
     Install-Shortcuts
+    Install-SublimeProfile
 
     Set-GitConfiguration
 
@@ -15,29 +14,20 @@ function New-Machine
     choco install --confirm sysinternals
     choco install --confirm winmerge
 
+    Install-PsGet
     Install-Module posh-git
     Install-Module posh-npm
-}
-
-function Install-PsGet
-{
-    (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
-}
-
-function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
-{
-    git clone $sublime_profile "$env:appdata\Sublime Text 3"
 }
 
 function Install-Shortcuts
 {
     New-Shortcut "$env:userprofile\Links\Home.lnk"       "$env:userprofile"
-    New-Shortcut "$env:userprofile\Links\Desktop.lnk"    "$env:userprofile\Desktop"
-    New-Shortcut "$env:userprofile\Links\Source.lnk"     "$env:userprofile\Source"
-    New-Shortcut "$env:userprofile\Links\Downloads.lnk"  "$env:userprofile\Downloads"
-    New-Shortcut "$env:userprofile\Links\Powershell.lnk" "$env:userprofile\Documents\WindowsPowershell"
     New-Shortcut "$env:userprofile\Links\AppData.lnk"    "$env:userprofile\AppData"
-    New-Shortcut "$env:userprofile\Links\Tools.lnk"      "$env:userprofile\Tools"
+}
+
+function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
+{
+    git clone $sublime_profile "$env:appdata\Sublime Text 3"
 }
 
 function Set-GitConfiguration
@@ -49,6 +39,11 @@ function Set-GitConfiguration
     git config --global push.default "simple"
     git config --global credential.helper "wincred"
     git config --global ghfw.disableverification true
+}
+
+function Install-PsGet
+{
+    (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 }
 
 function Install-NpmPackages
@@ -67,15 +62,6 @@ function Install-ModuleFromGit($url)
 
 
 ### Utility settings functions ###
-
-function Set-ConfigPaths
-{
-    # IIS Express
-    #New-Item         HKCU:\Software\Microsoft\IISExpress
-    #Set-ItemProperty HKCU:\Software\Microsoft\IISExpress -Name CustomUserHome -Value $env:appdata\IISExpress
-    # Fiddler
-    Set-ItemProperty HKCU:\Software\Microsoft\Fiddler2   -Name UserPath       -Value $env:appdata\Fiddler
-}
 
 function Hide-OneDrive
 {

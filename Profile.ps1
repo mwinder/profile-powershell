@@ -11,8 +11,8 @@ function User-Path
     Add-Path "$env:userprofile\.gem\ruby\*\bin" | `
     Add-Path "$env:userprofile\.dnx\bin" | `
     Add-Path "$env:userprofile\AppData\Local\Code\bin" | `
-    Add-Path "$env:userprofile\AppData\Roaming\npm" | `
-    Add-Path "$env:userprofile\Tools"
+    Add-Path "$env:userprofile\AppData\Local\Programs" | `
+    Add-Path "$env:userprofile\AppData\Roaming\npm"
 }
 
 function Global-Path
@@ -61,6 +61,11 @@ function prompt
     Write-Status
     Write-Host
     return "$ "
+}
+
+function Refresh-Path()
+{
+    $env:path = "$(Local-Path);$(System-Path);$(Global-Path);$(User-Path)"
 }
 
 Set-Home
