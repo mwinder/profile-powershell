@@ -1,6 +1,8 @@
 
 Import-Module Environment
 
+Set-Alias emacs "$env:localappdata\Programs\Emacs\bin\runemacs"
+
 function Local-Path
 {
     ";.\node_modules\.bin"
@@ -10,8 +12,8 @@ function User-Path
 {
     Add-Path "$env:userprofile\.gem\ruby\*\bin" | `
     Add-Path "$env:userprofile\.dnx\bin" | `
-    Add-Path "$env:userprofile\AppData\Local\Code\bin" | `
-    Add-Path "$env:userprofile\AppData\Local\Programs" | `
+    Add-Path "$env:localappdata\Code\bin" | `
+    Add-Path "$env:localappdata\Programs" | `
     Add-Path "$env:userprofile\AppData\Roaming\npm"
 }
 
