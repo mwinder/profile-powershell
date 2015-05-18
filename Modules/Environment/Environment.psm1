@@ -71,4 +71,9 @@ function Get-MachinePath([switch]$format = $false)
     return $result
 }
 
+function Add-UserPath($value)
+{
+    Set-UserPath -path "$(Get-UserPath);$value" -yes
+}
+
 Export-ModuleMember -function Set-*, Get-*, Add-*
