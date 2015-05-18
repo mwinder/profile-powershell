@@ -13,8 +13,8 @@ function User-Path
 {
     Include "$env:userprofile\.gem\ruby\*\bin" | `
     Include "$env:userprofile\.dnx\bin" | `
-    Include "$env:localappdata\Programs" | `
-    Include "$env:userprofile\AppData\Roaming\npm"
+    Include "$env:userprofile\AppData\Roaming\npm" | `
+    Include "$env:localappdata\Programs"
 }
 
 function Global-Path
