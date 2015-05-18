@@ -74,11 +74,6 @@ function prompt
     return "$ "
 }
 
-function Refresh-Path()
-{
-    $env:path = "$(Local-Path);$(System-Path);$(Global-Path);$(User-Path)"
-}
-
 Set-Home
 Set-Location $env:userprofile
 $env:path = "$(Local-Path);$env:path"

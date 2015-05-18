@@ -40,6 +40,11 @@ function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$yes =
     [Environment]::SetEnvironmentVariable("Path", $path, "Machine")
 }
 
+function Reset-ProcessPath()
+{
+    $env:path = "$(Local-Path);$(Get-MachinePath);$(Get-UserPath)"
+}
+
 function Display-Warning($current, $replacement)
 {
     "Rerun with -yes to set path..."
@@ -76,4 +81,4 @@ function Add-UserPath($value)
     Set-UserPath -path "$(Get-UserPath);$value" -yes
 }
 
-Export-ModuleMember -function Set-*, Get-*, Add-*
+Export-ModuleMember -function Add-*, Get-*, Reset-*, Set-*
