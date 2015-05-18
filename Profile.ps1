@@ -2,7 +2,7 @@
 Import-Module Environment
 
 Set-Alias code  "$env:localappdata\Code\bin\code"
-Set-Alias emacs "$env:localappdata\Programs\Emacs\bin\runemacs"
+Set-Alias emacs "$env:localappdata\Emacs\bin\runemacs"
 
 function Local-Path
 {
