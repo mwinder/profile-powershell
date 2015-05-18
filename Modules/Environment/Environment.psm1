@@ -50,6 +50,13 @@ function Display-Warning($current, $replacement)
     $replacement.Split(";")
 }
 
+function Get-ProcessPath([switch]$format = $false)
+{
+    $result = [Environment]::GetEnvironmentVariable("Path", "Process")
+    if ($format) { return $env:path.Split(";") }
+    return $result
+}
+
 function Get-UserPath([switch]$format = $false)
 {
     $result = [Environment]::GetEnvironmentVariable("Path", "User")
@@ -62,15 +69,6 @@ function Get-MachinePath([switch]$format = $false)
     $result = [Environment]::GetEnvironmentVariable("Path", "Machine")
     if ($format) { return $result.Split(";") }
     return $result
-}
-
-function Add-Path([string]$target)
-{
-    $path = Get-Item $target -ErrorAction SilentlyContinue
-    if (-not $path) {
-        return $input
-    }
-    return "$input;$path"
 }
 
 Export-ModuleMember -function Set-*, Get-*, Add-*

@@ -1,6 +1,7 @@
 
 Import-Module Environment
 
+Set-Alias code  "$env:localappdata\Code\bin\code"
 Set-Alias emacs "$env:localappdata\Programs\Emacs\bin\runemacs"
 
 function Local-Path
@@ -10,38 +11,46 @@ function Local-Path
 
 function User-Path
 {
-    Add-Path "$env:userprofile\.gem\ruby\*\bin" | `
-    Add-Path "$env:userprofile\.dnx\bin" | `
-    Add-Path "$env:localappdata\Code\bin" | `
-    Add-Path "$env:localappdata\Programs" | `
-    Add-Path "$env:userprofile\AppData\Roaming\npm"
+    Include "$env:userprofile\.gem\ruby\*\bin" | `
+    Include "$env:userprofile\.dnx\bin" | `
+    Include "$env:localappdata\Programs" | `
+    Include "$env:userprofile\AppData\Roaming\npm"
 }
 
 function Global-Path
 {
-    Add-Path "$env:systemroot\Microsoft.NET\Framework64\v4.0.30319" | `
-    Add-Path "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
-    Add-Path "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
-    Add-Path "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
-    Add-Path "$env:programfiles\nodejs" | `
-    Add-Path "$env:programfiles\Sublime Text 3" | `
-    Add-Path "$env:programfiles\TortoiseHg" | `
-    Add-Path "$env:programfiles (x86)\Git\cmd" | Add-Path "$env:programfiles (x86)\Git\bin" | `
-    Add-Path "$env:programdata\chocolatey\bin" | `
-    Add-Path "$env:systemdrive\HashiCorp\Vagrant\bin" | `
-    Add-Path "$env:systemdrive\HashiCorp\Packer" | `
-    Add-Path "$env:systemdrive\Tools\go\bin" | `
-    Add-Path "$env:systemdrive\Tools\python" | Add-Path "$env:systemdrive\Tools\python\scripts" | `
-    Add-Path "$env:systemdrive\Tools\ruby*\bin" | `
-    Add-Path "$env:systemdrive\Tools\sysinternals"
+    Include "$env:systemroot\Microsoft.NET\Framework64\v4.0.30319" | `
+    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
+    Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
+    Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
+    Include "$env:programfiles\nodejs" | `
+    Include "$env:programfiles\Sublime Text 3" | `
+    Include "$env:programfiles\TortoiseHg" | `
+    Include "$env:programfiles (x86)\Git\cmd" | Include "$env:programfiles (x86)\Git\bin" | `
+    Include "$env:programdata\chocolatey\bin" | `
+    Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
+    Include "$env:systemdrive\HashiCorp\Packer" | `
+    Include "$env:systemdrive\Tools\go\bin" | `
+    Include "$env:systemdrive\Tools\python" | Include "$env:systemdrive\Tools\python\scripts" | `
+    Include "$env:systemdrive\Tools\ruby*\bin" | `
+    Include "$env:systemdrive\Tools\sysinternals"
 }
 
 function System-Path
 {
-    Add-Path "$env:systemroot\system32" | `
-    Add-Path "$env:systemroot" | `
-    Add-Path "$env:systemroot\System32\Wbem" | `
-    Add-Path "$env:systemroot\System32\WindowsPowerShell\v1.0"
+    Include "$env:systemroot\system32" | `
+    Include "$env:systemroot" | `
+    Include "$env:systemroot\System32\Wbem" | `
+    Include "$env:systemroot\System32\WindowsPowerShell\v1.0"
+}
+
+function Include([string]$target)
+{
+    $path = Get-Item $target -ErrorAction SilentlyContinue
+    if (-not $path) {
+        return $input
+    }
+    return "$input;$path"
 }
 
 function User-Name { [Environment]::Username }
