@@ -8,7 +8,7 @@ function Set-Home($value = $env:userprofile)
     (Get-PSProvider FileSystem).Home = $value
 }
 
-function Set-UserPath($path = $(User-Path), [switch]$confirm = $false)
+function Set-UserPath($path = $(User-Path), [switch]$yes = $false)
 {
     $current = $(Get-UserPath)
     if ($path -eq $current)
@@ -16,7 +16,7 @@ function Set-UserPath($path = $(User-Path), [switch]$confirm = $false)
         "Already up to date"
         return
     }
-    if (-not $confirm)
+    if (-not $yes)
     {
         Display-Warning $current $path
         return
@@ -24,7 +24,7 @@ function Set-UserPath($path = $(User-Path), [switch]$confirm = $false)
     [Environment]::SetEnvironmentVariable("Path", $path, "User")
 }
 
-function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$confirm = $false)
+function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$yes = $false)
 {
     $current = $(Get-MachinePath)
     if ($path -eq $current)
@@ -32,7 +32,7 @@ function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$confi
         "Already up to date"
         return
     }
-    if (-not $confirm)
+    if (-not $yes)
     {
         Display-Warning $current $path
         return
@@ -42,7 +42,7 @@ function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$confi
 
 function Display-Warning($current, $replacement)
 {
-    "Rerun with -confirm to set path..."
+    "Rerun with -yes to set path..."
     "## Current ##"
     $current.Split(";")
     ""
