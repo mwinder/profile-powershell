@@ -19,7 +19,6 @@ function User-Path
 
 function Global-Path
 {
-    Include "$env:systemroot\Microsoft.NET\Framework64\v4.0.30319" | `
     Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
@@ -27,6 +26,7 @@ function Global-Path
     Include "$env:programfiles\Sublime Text 3" | `
     Include "$env:programfiles\TortoiseHg" | `
     Include "$env:programfiles (x86)\Git\cmd" | Include "$env:programfiles (x86)\Git\bin" | `
+    Include "$env:programfiles (x86)\MSBuild\12.0\Bin" | `
     Include "$env:programdata\chocolatey\bin" | `
     Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
     Include "$env:systemdrive\HashiCorp\Packer" | `

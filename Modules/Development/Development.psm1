@@ -39,9 +39,9 @@ function Set-VisualStudioConfiguration
     # $dte.CommandBars["MenuBar"].Controls | where { $_.Caption -eq "A&nalyze" } | foreach { $_.Delete($false) }
 }
 
-function Invoke-Build($target = @("*.sln","*.csproj"))
+function Invoke-Build($projects = @("*.sln","*.csproj"))
 {
-    Get-ChildItem $target -Recurse | foreach ($_) {
+    Get-ChildItem $projects -Recurse | foreach ($_) {
         Write-Host "----"
         Write-Host "## Building: $_ ##"
         MSBuild $_ /verbosity:minimal /nologo
