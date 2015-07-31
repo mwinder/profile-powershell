@@ -8,6 +8,11 @@ function Set-Home($value = $env:userprofile)
     (Get-PSProvider FileSystem).Home = $value
 }
 
+function Set-ProcessPath()
+{
+    $env:path = "$(Get-SystemPath);$(Get-UserPath);$(Local-Path)"
+}
+
 function Set-UserPath($path = $(User-Path), [switch]$yes = $false)
 {
     $current = $(Get-UserPath)
@@ -24,9 +29,9 @@ function Set-UserPath($path = $(User-Path), [switch]$yes = $false)
     [Environment]::SetEnvironmentVariable("Path", $path, "User")
 }
 
-function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$yes = $false)
+function Set-SystemPath($path = $(System-Path), [switch]$yes = $false)
 {
-    $current = $(Get-MachinePath)
+    $current = $(Get-SystemPath)
     if ($path -eq $current)
     {
         "Already up to date"
@@ -38,11 +43,6 @@ function Set-MachinePath($path = $(System-Path) + $(Global-Path), [switch]$yes =
         return
     }
     [Environment]::SetEnvironmentVariable("Path", $path, "Machine")
-}
-
-function Reset-ProcessPath()
-{
-    $env:path = "$(Local-Path);$(Get-MachinePath);$(Get-UserPath)"
 }
 
 function Display-Warning($current, $replacement)
@@ -69,7 +69,7 @@ function Get-UserPath([switch]$format = $false)
     return $result
 }
 
-function Get-MachinePath([switch]$format = $false)
+function Get-SystemPath([switch]$format = $false)
 {
     $result = [Environment]::GetEnvironmentVariable("Path", "Machine")
     if ($format) { return $result.Split(";") }
@@ -81,4 +81,4 @@ function Add-UserPath($value)
     Set-UserPath -path "$(Get-UserPath);$value" -yes
 }
 
-Export-ModuleMember -function Add-*, Get-*, Reset-*, Set-*
+Export-ModuleMember -function Add-*, Get-*, Set-*
