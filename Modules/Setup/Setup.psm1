@@ -1,7 +1,6 @@
 
 function New-Machine
 {
-    Install-Shortcuts
     Install-SublimeProfile
 
     Set-GitConfiguration
@@ -17,12 +16,6 @@ function New-Machine
     Install-PsGet
     Install-Module posh-git
     Install-Module posh-npm
-}
-
-function Install-Shortcuts
-{
-    New-Shortcut "$env:userprofile\Links\Home.lnk"       "$env:userprofile"
-    New-Shortcut "$env:userprofile\Links\AppData.lnk"    "$env:userprofile\AppData"
 }
 
 function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
