@@ -33,8 +33,7 @@ function User-Path
 
     Include "$env:programfiles\Sublime Text 3" | `
 
-    Include "$env:systemdrive\Tools\ruby*\bin" | `
-    Include "$env:systemdrive\Tools\sysinternals"
+    Include "$env:systemdrive\Tools\ruby*\bin"
 
     # Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
     # Include "$env:systemdrive\HashiCorp\Packer" | `
