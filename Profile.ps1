@@ -17,20 +17,25 @@ function User-Path
 
     Include "$env:localappdata\Programs" | `
 
-
     Include "$env:programdata\Chocolatey\bin" | `
 
     Include "$env:programfiles\Git\bin" | `
+    Include "$env:programfiles (x86)\Git\bin" | `
+
+    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
+    Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
+    Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
+
+    Include "$env:programfiles (x86)\MSBuild\14.0\Bin" | `
+    Include "$env:programfiles (x86)\MSBuild\12.0\Bin" | `
+
     Include "$env:programfiles\nodejs" | `
+
     Include "$env:programfiles\Sublime Text 3" | `
 
     Include "$env:systemdrive\Tools\ruby*\bin" | `
     Include "$env:systemdrive\Tools\sysinternals"
 
-    # Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
-    # Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
-    # Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
-    # Include "$env:programfiles (x86)\MSBuild\12.0\Bin" | `
     # Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
     # Include "$env:systemdrive\HashiCorp\Packer" | `
     # Include "$env:systemdrive\Tools\go\bin" | `
