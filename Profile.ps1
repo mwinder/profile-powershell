@@ -20,7 +20,7 @@ function User-Path
     Include "$env:programdata\Chocolatey\bin" | `
 
     Include "$env:programfiles\Git\bin" | `
-    Include "$env:programfiles (x86)\Git\bin" | `
+    Include "$env:programfiles\Git\usr\bin" | `
 
     Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
