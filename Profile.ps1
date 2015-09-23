@@ -1,7 +1,6 @@
 
 Import-Module Environment
 
-Set-Alias code  "$env:localappdata\Code\bin\code"
 Set-Alias emacs "$env:localappdata\Emacs\bin\runemacs"
 
 function Local-Path
@@ -30,6 +29,8 @@ function User-Path
     Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
+
+    Include "$env:programfiles (x86)\Microsoft VS Code" | `
 
     Include "$env:programfiles\Sublime Text 3" | `
 
