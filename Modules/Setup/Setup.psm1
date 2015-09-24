@@ -42,7 +42,7 @@ function Install-EmacsProfile($emacs_profile = "https://github.com/mwinder/emacs
 
 function Install-VsCodeProfile($vscode_profile = "https://github.com/mwinder/vscode-profile.git")
 {
-    git clone $emacs_profile "$env:appdata\Code"
+    git clone $vscode_profile "$env:appdata\Code"
 }
 
 function Set-GitConfiguration
