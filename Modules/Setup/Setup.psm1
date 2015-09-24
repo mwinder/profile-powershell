@@ -16,6 +16,7 @@ function New-Machine
 
     Install-SublimeProfile
     Install-EmacsProfile
+
     Set-GitConfiguration
 }
 
