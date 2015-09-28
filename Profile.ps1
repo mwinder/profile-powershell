@@ -30,7 +30,7 @@ function User-Path
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
 
-    Include "$env:programfiles (x86)\Microsoft VS Code" | `
+    Include "$env:programfiles (x86)\Microsoft VS Code\bin" | `
 
     Include "$env:programfiles\Sublime Text 3" | `
 
