@@ -16,6 +16,7 @@ function Set-VisualStudioConfiguration
     $dte.Commands.Item("Build.BuildSelection").Bindings = "Global::Ctrl+B"
     $dte.Commands.Item("Build.BuildSolution").Bindings = "Global::Ctrl+Shift+B"
     $dte.Commands.Item("View.PackageManagerConsole").Bindings = "Global::Ctrl+Alt+C"
+    #$dte.Commands.Item("SQL.TSqlEditorExecuteQuery").Bindings = "Global::F5"
 
     ## Settings
 
