@@ -13,28 +13,22 @@ function User-Path
     Include "$env:userprofile\.gem\ruby\*\bin" | `
     Include "$env:userprofile\.dnx\bin" | `
     Include "$env:userprofile\AppData\Roaming\npm" | `
-
     Include "$env:localappdata\Programs" | `
 
     Include "$env:programdata\Chocolatey\bin" | `
 
-    Include "$env:programfiles\Git\bin" | `
+    Include "$env:programfiles\Git\bin" | `                                 ## Git
     Include "$env:programfiles\Git\usr\bin" | `
-
-    Include "$env:programfiles (x86)\MSBuild\14.0\Bin" | `
+    Include "$env:programfiles\Java\jre1.8.0_*\bin" | `                     ## Java
+    Include "$env:programfiles (x86)\MSBuild\14.0\Bin" | `                  ## MSBuild
     Include "$env:programfiles (x86)\MSBuild\12.0\Bin" | `
-
-    Include "$env:programfiles\nodejs" | `
-
-    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
+    Include "$env:programfiles\nodejs" | `                                  ## Node JS
+    Include "$env:systemdrive\Tools\ruby*\bin" | `                          ## Ruby
+    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `     ## SQL Server
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
-
-    Include "$env:programfiles (x86)\Microsoft VS Code\bin" | `
-
-    Include "$env:programfiles\Sublime Text 3" | `
-
-    Include "$env:systemdrive\Tools\ruby*\bin"
+    Include "$env:programfiles\Sublime Text 3" | `                          ## Sublime Text
+    Include "$env:programfiles (x86)\Microsoft VS Code\bin"                 ## VS Code
 
     # Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
     # Include "$env:systemdrive\HashiCorp\Packer" | `
