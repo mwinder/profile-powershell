@@ -13,6 +13,7 @@ function User-Path
     Include "$env:userprofile\.gem\ruby\*\bin" | `
     Include "$env:userprofile\.dnx\bin" | `
     Include "$env:userprofile\AppData\Roaming\npm" | `
+    Include "$env:localappdata\atom\bin" | `
     Include "$env:localappdata\Programs" | `
 
     Include "$env:programdata\Chocolatey\bin" | `

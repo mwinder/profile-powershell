@@ -45,6 +45,11 @@ function Install-VsCodeProfile($vscode_profile = "https://github.com/mwinder/vsc
     git clone $vscode_profile "$env:appdata\Code"
 }
 
+function Install-AtomProfile($atom_profile = "https://github.com/mwinder/atom-profile.git")
+{
+    git clone $atom_profile "$env:userprofile\.atom"
+}
+
 function Set-GitConfiguration
 {
     git config --global user.name "Matthew Winder"
