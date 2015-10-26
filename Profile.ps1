@@ -1,8 +1,6 @@
 
 Import-Module Environment
 
-Set-Alias emacs "$env:localappdata\Emacs\bin\runemacs"
-
 function Local-Path
 {
     ";.\node_modules\.bin"
