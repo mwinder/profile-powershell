@@ -19,8 +19,3 @@ function New-Shortcut([string]$name, [string]$target)
     $shortcut.TargetPath = $target
     $shortcut.Save()
 }
-
-function Which([string]$cmd)
-{
-    Get-Command -ErrorAction SilentlyContinue $cmd | Select -ExpandProperty Definition
-}
