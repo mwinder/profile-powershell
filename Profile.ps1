@@ -58,17 +58,11 @@ function Host-Name { [Environment]::MachineName }
 
 function User-Location { $(Get-Location).Path.Replace($env:userprofile, "~") }
 
-function Write-Status
-{
-    if (Get-Command Write-VcsStatus -ErrorAction SilentlyContinue) { Write-VcsStatus }
-}
-
 function prompt
 {
     Write-Host
     Write-Host "$(User-Name)@$(Host-Name)" -NoNewline -ForegroundColor Green
     Write-Host " $(User-Location)" -NoNewline
-    Write-Status
     Write-Host
     return "$ "
 }
