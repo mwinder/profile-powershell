@@ -8,21 +8,24 @@ function Set-VisualStudioConfiguration
     }
 
     ## Commands
-    $dte.Commands.Item("File.Close").Bindings = "Global::Ctrl+W"
+    $dte.Commands.Item("File.Close").Bindings = "Global::Ctrl+W"                        # Needs assigning
     $dte.Commands.Item("File.CloseAllButThis").Bindings = "Global::Ctrl+Shift+W"
     $dte.Commands.Item("Edit.NavigateTo").Bindings = "Global::Ctrl+P"
     $dte.Commands.Item("Edit.SelectCurrentWord").Bindings = "Global::Ctrl+D"
     $dte.Commands.Item("Build.BuildSelection").Bindings = "Global::Ctrl+B"
     $dte.Commands.Item("Build.BuildSolution").Bindings = "Global::Ctrl+Shift+B"
+    $dte.Commands.Item("View.SolutionExplorer").Bindings = "Global::Ctrl+\"             # Needs assigning
     $dte.Commands.Item("View.PackageManagerConsole").Bindings = "Global::Ctrl+Alt+C"
     $dte.Commands.Item("SQL.TSqlEditorExecuteQuery").Bindings = "Microsoft SQL Server Data Tools, T-SQL Editor::F5"
 
     ## Settings
     ($dte.Properties("Environment", "Startup") | where {$_.Name -eq "OnStartUp" } ).Value = 4
 
-    ($dte.Properties("Environment", "ProjectsAndSolution") | where {$_.Name -eq "ProjectsLocation" } ).Value = $env:userprofile + "\Source"
-    ($dte.Properties("Environment", "ProjectsAndSolution") | where {$_.Name -eq "TrackFileSelectionInExplorer" } ).Value = $true
-    ($dte.Properties("Environment", "ProjectsAndSolution") | where {$_.Name -eq "ShowOutputWindowBeforeBuild" } ).Value = $true
+    ($dte.Properties("Environment", "ProjectsAndSolution") | where { $_.Name -eq "ProjectsLocation" } ).Value = $env:userprofile + "\Source"
+    ($dte.Properties("Environment", "ProjectsAndSolution") | where { $_.Name -eq "TrackFileSelectionInExplorer" } ).Value = $true
+    ($dte.Properties("Environment", "ProjectsAndSolution") | where { $_.Name -eq "ShowOutputWindowBeforeBuild" } ).Value = $true
+
+    ($dte.Properties("FontsAndColors", "TextEditor") | where { $_.Name -eq "FontSize" }).Value = 11
 
     ($dte.Properties("TextEditor", "AllLanguages") | where {$_.Name -eq "ShowLineNumbers" } ).Value = $true
 }
