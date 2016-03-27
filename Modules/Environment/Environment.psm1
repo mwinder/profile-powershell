@@ -10,7 +10,7 @@ function Set-Home($value = $env:userprofile)
 
 function Set-ProcessPath()
 {
-    $env:path = "$(Local-Path);$(Get-SystemPath);$(Get-UserPath)"
+    $env:path = "$(Local-Path);$(Get-UserPath);$(Get-SystemPath)"
 }
 
 function Set-UserPath($path = $(User-Path), [switch]$yes = $false)
