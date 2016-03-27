@@ -57,8 +57,8 @@ function Display-Warning($current, $replacement)
 
 function Get-ProcessPath([switch]$format = $false)
 {
-    $result = [Environment]::GetEnvironmentVariable("Path", "Process")
-    if ($format) { return $env:path.Split(";") }
+    $result = $env:path
+    if ($format) { return $result.Split(";") }
     return $result
 }
 
