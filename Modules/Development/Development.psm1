@@ -42,6 +42,11 @@ function Remove-BuildFiles
     Get-ChildItem .\ -Include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
 }
 
+function Reset-VisualStudio2015UserData
+{
+    & "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv" /ResetUserData
+}
+
 function Set-DefaultGitIgnores
 {
 "bin/
