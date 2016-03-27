@@ -8,7 +8,6 @@ function Set-VisualStudioConfiguration
     }
 
     ## Commands
-
     $dte.Commands.Item("File.Close").Bindings = "Global::Ctrl+W"
     $dte.Commands.Item("File.CloseAllButThis").Bindings = "Global::Ctrl+Shift+W"
     $dte.Commands.Item("Edit.NavigateTo").Bindings = "Global::Ctrl+P"
@@ -16,11 +15,9 @@ function Set-VisualStudioConfiguration
     $dte.Commands.Item("Build.BuildSelection").Bindings = "Global::Ctrl+B"
     $dte.Commands.Item("Build.BuildSolution").Bindings = "Global::Ctrl+Shift+B"
     $dte.Commands.Item("View.PackageManagerConsole").Bindings = "Global::Ctrl+Alt+C"
-    #$dte.Commands.Item("SQL.TSqlEditorExecuteQuery").Bindings = "Global::F5"
+    $dte.Commands.Item("SQL.TSqlEditorExecuteQuery").Bindings = "Microsoft SQL Server Data Tools, T-SQL Editor::F5"
 
     ## Settings
-
-    ($dte.Properties("Environment", "General") | where {$_.Name -eq "ShowStatusBar" } ).Value = $false
     ($dte.Properties("Environment", "Startup") | where {$_.Name -eq "OnStartUp" } ).Value = 4
 
     ($dte.Properties("Environment", "ProjectsAndSolution") | where {$_.Name -eq "ProjectsLocation" } ).Value = $env:userprofile + "\Source"
@@ -28,16 +25,6 @@ function Set-VisualStudioConfiguration
     ($dte.Properties("Environment", "ProjectsAndSolution") | where {$_.Name -eq "ShowOutputWindowBeforeBuild" } ).Value = $true
 
     ($dte.Properties("TextEditor", "AllLanguages") | where {$_.Name -eq "ShowLineNumbers" } ).Value = $true
-
-    ## Windows
-
-    # $dte.Windows | where { "Server Explorer", "Properties", "Toolbox", "Team Explorer", "Class View" -contains $_.Caption } | foreach { $_.Visible = $false }
-
-    ## Menus
-
-    # $dte.CommandBars | where { $_.Type -eq "msoBarTypeNormal" } | foreach { $_.Visible = $false }
-    # $dte.CommandBars["MenuBar"].Controls | where { $_.Caption -eq "Tea&m" } | foreach { $_.Delete($false) }
-    # $dte.CommandBars["MenuBar"].Controls | where { $_.Caption -eq "A&nalyze" } | foreach { $_.Delete($false) }
 }
 
 function Invoke-Build($projects = @("*.sln","*.csproj"))
