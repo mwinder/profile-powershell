@@ -1,21 +1,23 @@
 
-function New-Machine
+function New-BaseSystem
 {
     Install-Chocolatey
+    choco feature enable -name=allowGlobalConfirmation
     choco install --confirm 7zip
-    choco install --confirm gitextensions
+    choco install --confirm gitextensions --notsilent --ignoredependencies
     choco install --confirm kdiff3
     choco install --confirm nodejs
     choco install --confirm sublimetext3
     choco install --confirm sysinternals
-    choco install --confirm winmerge
+    choco install --confirm visualstudio2015community --notsilent
+    choco install --confirm winmerge --notsilent
 
     Install-PsGet
     Install-Module posh-git
     Install-Module posh-npm
 
     Install-SublimeProfile
-    Install-EmacsProfile
+    Install-CmderProfile
 
     Set-GitConfiguration
 }
@@ -30,9 +32,16 @@ function Install-PsGet
     (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 }
 
-function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
+### Profiles ###
+
+function Install-AtomProfile($atom_profile = "https://github.com/mwinder/atom-profile.git")
 {
-    git clone $sublime_profile "$env:appdata\Sublime Text 3"
+    git clone $atom_profile "$env:userprofile\.atom"
+}
+
+function Install-CmderProfile($cmder_profile = "https://github.com/mwinder/cmder-profile.git")
+{
+    git clone $cmder_profile "$env:localappdata\Programs\Cmder"
 }
 
 function Install-EmacsProfile($emacs_profile = "https://github.com/mwinder/emacs-profile.git")
@@ -40,15 +49,17 @@ function Install-EmacsProfile($emacs_profile = "https://github.com/mwinder/emacs
     git clone $emacs_profile "$env:userprofile\.emacs.d"
 }
 
+function Install-SublimeProfile($sublime_profile = "https://github.com/mwinder/sublime-profile.git")
+{
+    git clone $sublime_profile "$env:appdata\Sublime Text 3"
+}
+
 function Install-VsCodeProfile($vscode_profile = "https://github.com/mwinder/vscode-profile.git")
 {
     git clone $vscode_profile "$env:appdata\Code"
 }
 
-function Install-AtomProfile($atom_profile = "https://github.com/mwinder/atom-profile.git")
-{
-    git clone $atom_profile "$env:userprofile\.atom"
-}
+### Configuration ###
 
 function Set-GitConfiguration
 {
@@ -59,20 +70,4 @@ function Set-GitConfiguration
     git config --global push.default "simple"
     git config --global credential.helper "wincred"
     git config --global ghfw.disableverification true
-}
-
-function Install-ModuleFromGit($url)
-{
-    Push-Location
-    Set-Location $env:userprofile\Documents\WindowsPowershell\Modules
-    git clone $url
-    Pop-Location
-}
-
-
-### Utility settings functions ###
-
-function Hide-OneDrive
-{
-    Set-ItemProperty "HKCU:\Software\Classes\CLSID\{8E74D236-7F35-4720-B138-1FED0B85EA75}\ShellFolder" -Name Attributes -Value 0
 }
