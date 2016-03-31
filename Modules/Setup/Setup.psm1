@@ -26,6 +26,16 @@ function Install-Chocolatey
     choco feature enable -name=allowGlobalConfirmation
 }
 
+function Install-ChocolateyPackage($package, [switch]$interactive = $false)
+{
+    if ($interactive) {
+        choco install $package --confirm --notsilent
+    }
+    else {
+        choco install $package --confirm
+    }
+}
+
 function Install-PsGet
 {
     (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
