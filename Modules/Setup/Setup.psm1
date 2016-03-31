@@ -2,7 +2,6 @@
 function New-BaseSystem
 {
     Install-Chocolatey
-    choco feature enable -name=allowGlobalConfirmation
     choco install --confirm 7zip
     choco install --confirm gitextensions --notsilent --ignoredependencies
     choco install --confirm kdiff3
@@ -26,6 +25,7 @@ function New-BaseSystem
 function Install-Chocolatey
 {
     (New-Object Net.WebClient).DownloadString("https://chocolatey.org/install.ps1") | iex
+    choco feature enable -name=allowGlobalConfirmation
 }
 
 function Install-PsGet
