@@ -59,16 +59,3 @@ function Install-VsCodeProfile($vscode_profile = "https://github.com/mwinder/vsc
 {
     git clone $vscode_profile "$env:appdata\Code"
 }
-
-### Configuration ###
-
-function Set-GitConfiguration
-{
-    git config --global user.name "Matthew Winder"
-    git config --global user.email "@mwinder"
-    git config --global core.autocrlf true
-    git config --global core.editor "subl"
-    git config --global push.default "simple"
-    git config --global credential.helper "wincred"
-    git config --global ghfw.disableverification true
-}

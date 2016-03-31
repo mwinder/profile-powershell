@@ -30,6 +30,34 @@ function Set-VisualStudioConfiguration
     ($dte.Properties("TextEditor", "AllLanguages") | where {$_.Name -eq "ShowLineNumbers" } ).Value = $true
 }
 
+function Reset-VisualStudio2015UserData
+{
+    & "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv" /ResetUserData
+}
+
+function Set-GitConfig
+{
+    git config --global user.name "Matthew Winder"
+    git config --global user.email "@mwinder"
+    git config --global core.autocrlf true
+    git config --global core.editor "subl"
+    git config --global push.default "simple"
+    git config --global credential.helper "wincred"
+    git config --global ghfw.disableverification true
+}
+
+function Set-GitIgnoreVisualStudio
+{
+".vs/
+bin/
+obj/
+packages/
+*.user
+*.suo" | Out-File -encoding utf8 .gitignore
+}
+
+## Build ##
+
 function Invoke-Build($projects = @("*.sln","*.csproj"))
 {
     Get-ChildItem $projects -Recurse | foreach ($_) {
@@ -40,20 +68,7 @@ function Invoke-Build($projects = @("*.sln","*.csproj"))
     }
 }
 
-function Remove-BuildFiles
+function Remove-BuildArtifacts
 {
     Get-ChildItem .\ -Include bin,obj -Recurse | foreach ($_) { Remove-Item $_.fullname -Force -Recurse }
-}
-
-function Reset-VisualStudio2015UserData
-{
-    & "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv" /ResetUserData
-}
-
-function Set-DefaultGitIgnores
-{
-"bin/
-obj/
-*.user
-*.suo" | Out-File -encoding utf8 .gitignore
 }
