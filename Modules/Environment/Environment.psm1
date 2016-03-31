@@ -1,11 +1,11 @@
 
-function Set-Home($value = $env:userprofile)
+function Set-Home($path = $env:userprofile)
 {
-    $env:home = $value
-    [Environment]::SetEnvironmentVariable("Home", $value, "User")
+    $env:home = $path
+    [Environment]::SetEnvironmentVariable("Home", $path, "User")
 
-    # HACK: Required to ensure ~ resolves to userprofile folder (not %HOMEDRIVE%%HOMEPATH%)
-    (Get-PSProvider FileSystem).Home = $value
+    # Ensure ~ resolves to userprofile folder (not %HOMEDRIVE%%HOMEPATH% for example)
+    (Get-PSProvider FileSystem).Home = $path
 }
 
 function Set-ProcessPath()
