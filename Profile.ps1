@@ -1,6 +1,4 @@
 
-Import-Module Environment
-
 function Local-Path
 {
     ".\node_modules\.bin"
