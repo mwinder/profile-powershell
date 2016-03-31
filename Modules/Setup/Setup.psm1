@@ -18,8 +18,6 @@ function New-BaseSystem
 
     Install-SublimeProfile
     Install-CmderProfile
-
-    Set-GitConfiguration
 }
 
 function Install-Chocolatey
