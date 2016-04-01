@@ -15,9 +15,6 @@ function New-BaseSystem
     Install-PsGet
     Install-Module posh-git
     Install-Module posh-npm
-
-    Install-SublimeProfile
-    Install-CmderProfile
 }
 
 function Install-Chocolatey
@@ -41,16 +38,18 @@ function Install-PsGet
     (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 }
 
+function Install-ProgramsLocal($repository = "https://github.com/mwinder/programs-local.git")
+{
+    $target = "$env:localappdata\Programs"
+    rm -Recurse -ErrorAction SilentlyContinue $target
+    git clone $repository $target
+}
+
 ### Profiles ###
 
 function Install-AtomProfile($atom_profile = "https://github.com/mwinder/atom-profile.git")
 {
     git clone $atom_profile "$env:userprofile\.atom"
-}
-
-function Install-CmderProfile($cmder_profile = "https://github.com/mwinder/cmder-profile.git")
-{
-    git clone $cmder_profile "$env:localappdata\Programs\Cmder"
 }
 
 function Install-EmacsProfile($emacs_profile = "https://github.com/mwinder/emacs-profile.git")
