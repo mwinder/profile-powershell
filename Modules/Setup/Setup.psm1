@@ -2,13 +2,13 @@
 function New-BaseSystem
 {
     choco install --confirm 7zip
-    choco install --confirm sysinternals
-
     choco install --confirm kdiff3
     choco install --confirm nodejs
     choco install --confirm sublimetext3
+    choco install --confirm sysinternals
+    choco install --confirm winmerge
+
     choco install --confirm gitextensions --notsilent
-    choco install --confirm winmerge --notsilent
     choco install --confirm winscp --notsilent
 }
 
