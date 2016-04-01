@@ -10,11 +10,7 @@ function New-BaseSystem
     choco install --confirm sysinternals
     choco install --confirm visualstudio2015community --notsilent
     choco install --confirm winmerge --notsilent
-    choco install --confirm winscp --notsilent
-
-    Install-PsGet
-    Install-Module posh-git
-    Install-Module posh-npm
+    choco install --confirm winscp --notsilents
 }
 
 function Install-Chocolatey
