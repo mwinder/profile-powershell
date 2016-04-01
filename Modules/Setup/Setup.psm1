@@ -38,11 +38,15 @@ function Install-PsGet
     (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
 }
 
+function Install-FromGitRepository($repository, $target)
+{
+    rm $target -Recurse -ErrorAction SilentlyContinue
+    git clone $repository $target
+}
+
 function Install-ProgramsLocal($repository = "https://github.com/mwinder/programs-local.git")
 {
-    $target = "$env:localappdata\Programs"
-    rm -Recurse -ErrorAction SilentlyContinue $target
-    git clone $repository $target
+    Install-FromGitRepository $repository "$env:localappdata\Programs"
 }
 
 ### Profiles ###
