@@ -1,6 +1,5 @@
-0. Run `Set-ExecutionPolicy RemoteSigned`
-1. Install git: <https://git-for-windows.github.io/>
-2. Clone this repo:
+1. Run `Set-ExecutionPolicy RemoteSigned`
+2. Run in Powershell as Admin:
 ```
-git clone https://github.com/mwinder/profile-powershell.git Settings/WindowsPowershell
+(New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/mwinder/profile-powershell/master/install.ps1") | iex
 ```

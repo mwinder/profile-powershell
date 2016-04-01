@@ -2,9 +2,10 @@
 function Main
 {
     Install-Chocolatey
+    choco install googlechrome
     choco install git --notsilent
 
-    git clone https://github.com/mwinder/powershell-profile.git "Documents\WindowsPowershell"
+    git clone https://github.com/mwinder/powershell-profile.git "~\Documents\WindowsPowershell"
 }
 
 function Install-Chocolatey
