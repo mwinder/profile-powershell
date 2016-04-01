@@ -1,16 +1,20 @@
 
 function New-BaseSystem
 {
-    Install-Chocolatey
     choco install --confirm 7zip
-    choco install --confirm gitextensions --notsilent --ignoredependencies
+    choco install --confirm sysinternals
+
     choco install --confirm kdiff3
     choco install --confirm nodejs
     choco install --confirm sublimetext3
-    choco install --confirm sysinternals
-    choco install --confirm visualstudio2015community --notsilent
+    choco install --confirm gitextensions --notsilent
     choco install --confirm winmerge --notsilent
-    choco install --confirm winscp --notsilents
+    choco install --confirm winscp --notsilent
+}
+
+function Install-VisualStudio
+{
+    choco install --confirm visualstudio2015community --notsilent
 }
 
 function Install-Chocolatey
