@@ -51,22 +51,22 @@ function Install-ProgramsLocal($repository = "https://github.com/mwinder/program
 
 ### Profiles ###
 
-function Install-ProfileAtom($repository = "https://github.com/mwinder/atom-profile.git")
+function Install-ProfileAtom($repository = "https://github.com/mwinder/profile-atom.git")
 {
     git clone $repository "$env:userprofile\.atom"
 }
 
-function Install-ProfileEmacs($repository = "https://github.com/mwinder/emacs-profile.git")
+function Install-ProfileEmacs($repository = "https://github.com/mwinder/profile-emacs.git")
 {
     git clone $repository "$env:userprofile\.emacs.d"
 }
 
-function Install-ProfileSublime($repository = "https://github.com/mwinder/sublime-profile.git")
+function Install-ProfileSublime($repository = "https://github.com/mwinder/profile-sublime.git")
 {
     git clone $repository "$env:appdata\Sublime Text 3"
 }
 
-function Install-ProfileVsCode($repository = "https://github.com/mwinder/vscode-profile.git")
+function Install-ProfileVsCode($repository = "https://github.com/mwinder/profile-vscode.git")
 {
     git clone $repository "$env:appdata\Code"
 }
