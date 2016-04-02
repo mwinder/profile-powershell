@@ -44,12 +44,7 @@ function Install-FromGitRepository($repository, $target)
     git clone $repository $target
 }
 
-function Install-ProgramsLocal($repository = "https://github.com/mwinder/programs-local.git")
-{
-    Install-FromGitRepository $repository "$env:localappdata\Programs"
-}
-
-### Profiles ###
+### Profile ###
 
 function Install-ProfileAtom($repository = "https://github.com/mwinder/profile-atom.git")
 {
@@ -69,4 +64,9 @@ function Install-ProfileSublime($repository = "https://github.com/mwinder/profil
 function Install-ProfileVsCode($repository = "https://github.com/mwinder/profile-vscode.git")
 {
     git clone $repository "$env:appdata\Code"
+}
+
+function Install-ProfilePrograms($repository = "https://github.com/mwinder/profile-programs.git")
+{
+    Install-FromGitRepository $repository "$env:localappdata\Programs"
 }
