@@ -24,14 +24,13 @@ function Install-Chocolatey
     choco feature enable -name=allowGlobalConfirmation
 }
 
-function Install-ChocolateyPackage($package, [switch]$interactive = $false)
+function Install-PackageFromChocolatey($package, [switch]$interactive = $false)
 {
+    $command = "choco install $package --confirm"
     if ($interactive) {
-        choco install $package --confirm --notsilent
+        $command += " --notsilent"
     }
-    else {
-        choco install $package --confirm
-    }
+    $command | iex
 }
 
 function Install-PsGet
