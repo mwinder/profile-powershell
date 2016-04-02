@@ -1,18 +1,4 @@
 
-function New-BaseSystem
-{
-    choco install --confirm 7zip
-    choco install --confirm sysinternals
-
-    choco install --confirm nodejs
-    choco install --confirm sublimetext3
-
-    choco install --confirm gitextensions --notsilent
-    choco install --confirm kdiff3 --notsilent
-    choco install --confirm winmerge --notsilent
-    choco install --confirm winscp --notsilent
-}
-
 function Install-VisualStudio
 {
     choco install --confirm visualstudio2015community --notsilent
