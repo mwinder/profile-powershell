@@ -28,7 +28,7 @@ function New-BaseSystem
 
 function Install-ProfilePowershell($repository = "https://github.com/mwinder/powershell-profile.git")
 {
-    $env:path += "$env:programfiles\Git\bin"
+    $env:path += ";$env:programfiles\Git\bin"
     cd ~
     git clone $repository Documents\WindowsPowershell
 }
