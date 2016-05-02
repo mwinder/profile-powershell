@@ -38,7 +38,7 @@ function Reset-VisualStudio2015UserData
 function Set-GitConfig
 {
     git config --global user.name "Matthew Winder"
-    git config --global user.email "@mwinder"
+    git config --global user.useConfigOnly true
     git config --global core.autocrlf true
     git config --global core.editor "subl -w --multiinstance"
     git config --global push.default "simple"
