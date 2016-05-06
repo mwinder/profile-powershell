@@ -10,6 +10,8 @@ function Set-VisualStudioConfiguration
     ## Commands
     $dte.Commands.Item("File.Close").Bindings = "Global::Ctrl+W"                        # Needs assigning
     $dte.Commands.Item("File.CloseAllButThis").Bindings = "Global::Ctrl+Shift+W"
+    $dte.Commands.Item("Edit.MoveSelectedLinesUp").Bindings = "Text Editor::Ctrl+Shift+Up Arrow"
+    $dte.Commands.Item("Edit.MoveSelectedLinesDown").Bindings = "Text Editor::Ctrl+Shift+Down Arrow"
     $dte.Commands.Item("Edit.NavigateTo").Bindings = "Global::Ctrl+P"
     $dte.Commands.Item("Edit.SelectCurrentWord").Bindings = "Global::Ctrl+D"
     $dte.Commands.Item("Build.BuildSelection").Bindings = "Global::Ctrl+B"
