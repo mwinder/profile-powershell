@@ -11,6 +11,7 @@ function User-Path
     Include "$env:userprofile\AppData\Roaming\npm" | `
     Include "$env:localappdata\atom\bin" | `
     Include "$env:localappdata\Programs" | `
+    Include "$env:localappdata\Programs\Python\Python27" | `
 
     Include "$env:programdata\Chocolatey\bin" | `
 
