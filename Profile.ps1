@@ -1,11 +1,8 @@
 
-function Local-Path
-{
-    ".\node_modules\.bin"
-}
-
 function User-Path
 {
+    ".\node_modules\.bin" | `
+
     Include "$env:userprofile\.gem\ruby\*\bin" | `
     Include "$env:userprofile\.dnx\bin" | `
     Include "$env:userprofile\AppData\Roaming\npm" | `
@@ -27,11 +24,6 @@ function User-Path
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
     Include "$env:programfiles\Sublime Text 3" | `                          ## Sublime Text
     Include "$env:programfiles (x86)\Microsoft VS Code\bin"                 ## VS Code
-
-    # Include "$env:systemdrive\HashiCorp\Vagrant\bin" | `
-    # Include "$env:systemdrive\HashiCorp\Packer" | `
-    # Include "$env:systemdrive\Tools\go\bin" | `
-    # Include "$env:systemdrive\Tools\python" | Include "$env:systemdrive\Tools\python\scripts"
 }
 
 function System-Path
@@ -65,6 +57,8 @@ function prompt
     Write-Host
     return "$ "
 }
+
+(Get-PSProvider 'FileSystem').Home = "$env:userprofile"
 
 Set-Home
 Set-Location $env:userprofile
