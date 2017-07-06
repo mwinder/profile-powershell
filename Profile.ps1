@@ -12,6 +12,7 @@ function User-Path
 
     Include "$env:programdata\Chocolatey\bin" | `
 
+    Include "$env:programfiles\dotnet" | `                                  ## dotnet
     Include "$env:programfiles\Git\bin" | `                                 ## Git
     Include "$env:programfiles\Git\usr\bin" | `
     Include "$env:programfiles\Java\jre1.8.0_*\bin" | `                     ## Java
@@ -19,7 +20,8 @@ function User-Path
     Include "$env:programfiles (x86)\MSBuild\12.0\Bin" | `
     Include "$env:programfiles\nodejs" | `                                  ## Node JS
     Include "$env:systemdrive\Tools\ruby*\bin" | `                          ## Ruby
-    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `     ## SQL Server
+    Include "$env:programfiles\Microsoft SQL Server\130\Tools\Binn" | `     ## SQL Server
+    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
     Include "$env:programfiles\Sublime Text 3" | `                          ## Sublime Text
