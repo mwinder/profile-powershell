@@ -16,6 +16,7 @@ function User-Path
     Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
     Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
+    Include "$env:programfiles\Microsoft VS Code" | `                       ## Visual Studio Code
     Include "$env:programfiles\Sublime Text 3"                              ## Sublime Text
 }
 
