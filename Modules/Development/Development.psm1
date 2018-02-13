@@ -44,7 +44,6 @@ function Set-GitConfig
     git config --global core.autocrlf true
     git config --global core.editor "subl -w --multiinstance"
     git config --global push.default "simple"
-    git config --global credential.helper "wincred"
     git config --global ghfw.disableverification true
 }
 
