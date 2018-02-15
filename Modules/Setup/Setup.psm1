@@ -1,9 +1,4 @@
 
-function Install-VisualStudio
-{
-    choco install --confirm visualstudio2015community --notsilent
-}
-
 function Install-Chocolatey
 {
     (New-Object Net.WebClient).DownloadString("https://chocolatey.org/install.ps1") | iex
