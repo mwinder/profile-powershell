@@ -3,21 +3,18 @@ function User-Path
 {
     ".\node_modules\.bin" | `
 
+    Include "$env:userprofile\AppData\Local\Programs\Sysinternals" | `
+
     Include "$env:userprofile\AppData\Roaming\npm" | `
 
     Include "$env:programdata\Chocolatey\bin" | `
 
-    Include "$env:programfiles\dotnet" | `                                  ## dotnet
-    Include "$env:programfiles\Git\bin" | `                                 ## Git
-    Include "$env:programfiles\Git\usr\bin" | `
-    Include "$env:programfiles\Java\jre1.8.0_*\bin" | `                     ## Java
-    Include "$env:programfiles\nodejs" | `                                  ## Node JS
-    Include "$env:programfiles\Microsoft SQL Server\130\Tools\Binn" | `     ## SQL Server
-    Include "$env:programfiles\Microsoft SQL Server\120\Tools\Binn" | `
-    Include "$env:programfiles\Microsoft SQL Server\110\Tools\Binn" | `
-    Include "$env:programfiles\Microsoft SQL Server\100\Tools\Binn" | `
-    Include "$env:programfiles\Microsoft VS Code" | `                       ## Visual Studio Code
-    Include "$env:programfiles\Sublime Text 3"                              ## Sublime Text
+    Include "$env:programfiles\dotnet" | `                                              ## dotnet
+    Include "$env:programfiles\Git\bin" | Include "$env:programfiles\Git\usr\bin" | `   ## Git
+    Include "$env:programfiles\nodejs" | `                                              ## Node JS
+    Include "$env:programfiles\Microsoft SQL Server\130\Tools\Binn" | `                 ## SQL Server
+    Include "$env:programfiles\Microsoft VS Code" | `                                   ## Visual Studio Code
+    Include "$env:programfiles\Sublime Text 3"                                          ## Sublime Text
 }
 
 function System-Path
