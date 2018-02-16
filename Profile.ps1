@@ -25,21 +25,6 @@ function System-Path
     Include "$env:systemroot\System32\WindowsPowerShell\v1.0"
 }
 
-function Include([string]$target)
-{
-    $path = Get-Item $target -ErrorAction SilentlyContinue
-    if (-not $path) {
-        return $input
-    }
-    return "$input;$path"
-}
-
-function User-Name { [Environment]::Username }
-
-function Host-Name { [Environment]::MachineName }
-
-function User-Location { $(Get-Location).Path.Replace($env:userprofile, "~") }
-
 function prompt
 {
     Write-Host
@@ -54,3 +39,22 @@ function prompt
 Set-Home
 Set-Location $env:userprofile
 Set-ProcessPath
+
+
+
+### PRIVATE ###
+
+function User-Name { [Environment]::Username }
+
+function Host-Name { [Environment]::MachineName }
+
+function User-Location { $(Get-Location).Path.Replace($env:userprofile, "~") }
+
+function Include([string]$target)
+{
+    $path = Get-Item $target -ErrorAction SilentlyContinue
+    if (-not $path) {
+        return $input
+    }
+    return "$input;$path"
+}
