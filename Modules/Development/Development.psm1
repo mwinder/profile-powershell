@@ -32,11 +32,6 @@ function Set-VisualStudioConfiguration
     ($dte.Properties("TextEditor", "AllLanguages") | where {$_.Name -eq "ShowLineNumbers" } ).Value = $true
 }
 
-function Reset-VisualStudio2015UserData
-{
-    & "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv" /ResetUserData
-}
-
 function Set-GitConfig
 {
     git config --global user.name "Matthew Winder"
