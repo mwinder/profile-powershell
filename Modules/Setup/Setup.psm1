@@ -14,11 +14,6 @@ function Install-PackageFromChocolatey($package, [switch]$interactive = $false)
     $command | iex
 }
 
-function Install-PsGet
-{
-    (New-Object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
-}
-
 function Install-FromGitRepository($repository, $target)
 {
     rm $target -Recurse -ErrorAction SilentlyContinue
