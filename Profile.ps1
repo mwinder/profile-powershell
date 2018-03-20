@@ -37,7 +37,6 @@ function prompt
 (Get-PSProvider 'FileSystem').Home = "$env:userprofile"
 
 Set-Home
-Set-Location $env:userprofile
 Set-ProcessPath
 
 
