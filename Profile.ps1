@@ -34,8 +34,8 @@ function prompt
     return "$ "
 }
 
-Set-Home
-Set-ProcessPath
+# Set-Home
+# Set-ProcessPath
 
 
 
