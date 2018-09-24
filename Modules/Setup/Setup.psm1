@@ -22,27 +22,27 @@ function Install-FromGitRepository($repository, $target)
 
 ### Profile ###
 
-function Install-ProfileAtom($repository = "https://github.com/mwinder/profile-atom.git")
+function Install-ProfileAtom($repository = "git@github.com:mwinder/profile-atom.git")
 {
     git clone $repository "$env:userprofile\.atom"
 }
 
-function Install-ProfileEmacs($repository = "https://github.com/mwinder/profile-emacs.git")
+function Install-ProfileEmacs($repository = "git@github.com:mwinder/profile-emacs.git")
 {
     git clone $repository "$env:userprofile\.emacs.d"
 }
 
-function Install-ProfileSublime($repository = "https://github.com/mwinder/profile-sublime.git")
+function Install-ProfileSublime($repository = "git@github.com:mwinder/profile-sublime.git")
 {
     git clone $repository "$env:appdata\Sublime Text 3"
 }
 
-function Install-ProfileVsCode($repository = "https://github.com/mwinder/profile-vscode.git")
+function Install-ProfileVsCode($repository = "git@github.com:mwinder/profile-vscode.git")
 {
     git clone $repository "$env:appdata\Code"
 }
 
-function Install-ProfilePrograms($repository = "https://github.com/mwinder/profile-programs.git")
+function Install-ProfilePrograms($repository = "git@github.com:mwinder/profile-programs.git")
 {
     Install-FromGitRepository $repository "$env:localappdata\Programs"
 }
