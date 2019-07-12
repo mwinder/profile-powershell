@@ -9,5 +9,3 @@ Modules/pscx
 Modules/PsGet
 Modules/PsUrl
 *_profile.ps1
-
-*.sublime-workspace
