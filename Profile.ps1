@@ -13,7 +13,7 @@ function User-Path
     Include "$env:programfiles\Git\bin" | Include "$env:programfiles\Git\usr\bin" | `   ## Git
     Include "$env:programfiles\nodejs" | `                                              ## Node JS
     Include "$env:programfiles\Microsoft SQL Server\130\Tools\Binn" | `                 ## SQL Server
-    Include "$env:programfiles\Microsoft VS Code" | `                                   ## Visual Studio Code
+    Include "$env:userprofile\AppData\Local\Programs\Microsoft VS Code" | `             ## Visual Studio Code
     Include "$env:programfiles\Sublime Text 3" | `                                      ## Sublime Text
     Include "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin" |`
     Include "C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0"| `
