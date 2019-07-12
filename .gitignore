@@ -1,8 +1,10 @@
 Modules/Az*
 Modules/Backup
+Modules/PackageManagement/
 Modules/posh-git
 Modules/posh-hg
 Modules/posh-npm
+Modules/PowerShellGet/
 Modules/pscx
 Modules/PsGet
 Modules/PsUrl
