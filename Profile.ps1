@@ -15,7 +15,8 @@ function User-Path
     Include "$env:programfiles\Microsoft SQL Server\130\Tools\Binn" | `                 ## SQL Server
     Include "$env:userprofile\AppData\Local\Programs\Microsoft VS Code" | `             ## Visual Studio Code
     Include "$env:programfiles\Sublime Text 3" | `                                      ## Sublime Text
-    Include "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin" |`
+    Include "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin" | `
+    Include "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator" | `
     Include "C:\Program Files (x86)\Microsoft SDKs\F#\10.1\Framework\v4.0"| `
     Include "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
 }
